@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:44:47 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/11/30 20:28:33 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/11/30 22:02:30 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ class Fixed
 		void	setRawBits(int const raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;
+
+		bool	greaterThan(Fixed const &compared);
 };
 
 std::ostream&	operator<<(std::ostream &o, Fixed const &fixed);
+
+
 
 #endif
