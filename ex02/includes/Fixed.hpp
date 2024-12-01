@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:44:47 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/11/30 22:02:30 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/01 11:35:37 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,12 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
-		bool	greaterThan(Fixed const &compared);
+		// bool	greaterThan(Fixed const &compared);
+		static float min(Fixed &a, Fixed &b);
+		static float max(Fixed &a, Fixed &b);
+
+		/* COMPARAISON OPERATOR */
+		bool	operator>(Fixed const &compared);
 };
 
 std::ostream&	operator<<(std::ostream &o, Fixed const &fixed);
