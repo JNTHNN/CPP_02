@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:49:47 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/12/01 11:35:53 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/03 09:26:06 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ void	Fixed::setRawBits(int const raw)
 	_fixedPoint = raw;
 }
 
-Fixed&	Fixed::operator=(Fixed const &fixed)
-{
-	this->_fixedPoint = fixed.getRawBits();
-	return *this;
-}
 
 Fixed::Fixed(const int itofp)
 {
@@ -66,17 +61,6 @@ int		Fixed::toInt(void) const
 	return _fixedPoint >> _fractionalBits;
 }
 
-std::ostream&	operator<<(std::ostream &o, Fixed const &fixed)
-{
-	o << fixed.toFloat();
-	return o;
-}
-
-bool	Fixed::operator>(Fixed const &compared)
-{
-	return _fixedPoint < compared._fixedPoint;
-}
-
 float	Fixed::min(Fixed &a, Fixed &b)
 {
 	if (a > b)
@@ -89,4 +73,66 @@ float	Fixed::max(Fixed &a, Fixed &b)
 	if (a > b)
 		return a.toFloat();
 	return b.toFloat();
+}
+
+Fixed&	Fixed::operator=(Fixed const &fixed)
+{
+	this->_fixedPoint = fixed.getRawBits();
+	return *this;
+}
+
+bool	Fixed::operator>(Fixed const &compared) const
+{
+	return this->_fixedPoint > compared._fixedPoint;
+}
+
+std::ostream&	operator<<(std::ostream &o, Fixed const &fixed)
+{
+	o << fixed.toFloat();
+	return o;
+}
+
+bool	Fixed::operator<(Fixed const &compared) const
+{
+	return this->_fixedPoint < compared._fixedPoint;
+}
+
+bool	Fixed::operator>=(Fixed const &compared) const
+{
+	return this->_fixedPoint >= compared._fixedPoint;
+}
+
+bool	Fixed::operator<=(Fixed const &compared) const
+{
+	return this->_fixedPoint <= compared._fixedPoint;
+}
+
+bool	Fixed::operator==(Fixed const &compared) const
+{
+	return this->_fixedPoint == compared._fixedPoint;
+}
+
+bool	Fixed::operator!=(Fixed const &compared) const
+{
+	return this->_fixedPoint != compared._fixedPoint;
+}
+
+Fixed	Fixed::operator+(Fixed const &add) const
+{
+	return (Fixed(this->toFloat() + add.toFloat()));
+}
+
+Fixed	Fixed::operator-(Fixed const &add) const
+{
+	return (Fixed(this->toFloat() + add.toFloat()));
+}
+
+Fixed	Fixed::operator*(Fixed const &add) const
+{
+	return (Fixed(this->toFloat() * add.toFloat()));
+}
+
+Fixed	Fixed::operator/(Fixed const &add) const
+{
+	return (Fixed(this->toFloat() / add.toFloat()));
 }
