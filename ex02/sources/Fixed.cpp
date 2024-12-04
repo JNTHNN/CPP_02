@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:49:47 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/12/04 11:44:54 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/04 21:58:05 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,15 @@ const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
 		return a;
 	return b;
 }
+
+/*	Operateur d'assignation	*/
 Fixed&	Fixed::operator=(Fixed const &fixed)
 {
 	this->_fixedPoint = fixed.getRawBits();
 	return *this;
 }
 
-/*	insertion operator	*/
+/*	Operateur d'insertion	*/
 
 std::ostream&	operator<<(std::ostream &o, Fixed const &fixed)
 {
@@ -101,7 +103,7 @@ std::ostream&	operator<<(std::ostream &o, Fixed const &fixed)
 	return o;
 }
 
-/*	comparative operator	*/
+/*	Operateurs de Comparaison	*/
 
 bool	Fixed::operator>(Fixed const &compared) const
 {
@@ -135,7 +137,7 @@ bool	Fixed::operator!=(Fixed const &compared) const
 
 
 
-/*	Arithmetic operators	*/
+/*	Operateurs Arimethiques	*/
 
 Fixed	Fixed::operator+(Fixed const &add) const
 {
@@ -144,7 +146,7 @@ Fixed	Fixed::operator+(Fixed const &add) const
 
 Fixed	Fixed::operator-(Fixed const &add) const
 {
-	return (Fixed(this->toFloat() + add.toFloat()));
+	return (Fixed(this->toFloat() - add.toFloat()));
 }
 
 Fixed	Fixed::operator*(Fixed const &add) const
@@ -158,16 +160,16 @@ Fixed	Fixed::operator/(Fixed const &add) const
 }
 
 
-/*	Increment operators	*/
+/*	Operateurs d'incrementation	*/
 
-/*	Pre increment	*/
+/*	Pre incrementation	*/
 Fixed	&Fixed::operator++(void)
 {
 	this->_fixedPoint++;
 	return *this;
 }
 
-/*	Post increment	*/
+/*	Post incrementation	*/
 Fixed	Fixed::operator++(const int)
 {
 	Fixed	temp = *this;
@@ -175,15 +177,15 @@ Fixed	Fixed::operator++(const int)
 	return temp;
 }
 
-/*	Pre increment	*/
+/*	Pre decrementation	*/
 Fixed	&Fixed::operator--(void)
 {
 	this->_fixedPoint--;
 	return *this;
 }
 
-/*	Post increment	*/
-Fixed	Fixed::operator--(const int)
+/*	Post decrementation	*/
+Fixed	Fixed::operator--(int)
 {
 	Fixed	temp = *this;
 	--*this;

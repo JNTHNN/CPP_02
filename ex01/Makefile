@@ -6,14 +6,14 @@
 #    By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/30 19:44:12 by jgasparo          #+#    #+#              #
-#    Updated: 2024/11/30 19:44:35 by jgasparo         ###   ########.fr        #
+#    Updated: 2024/12/04 22:16:44 by jgasparo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		:= fixed
 
 CPP 		:= c++
-CPPFLAGS	:= -Wall -Wextra -Werror -std=c++98 -MMD
+CPPFLAGS	:= -Wall -Wextra -Werror -std=c++98 -MMD -pedantic
 
 SRC_DIR		:=	sources/
 OBJ_DIR		:=	.obj/

@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:44:47 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/12/04 11:43:07 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/04 22:11:23 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
-		// bool	greaterThan(Fixed const &compared);
 		static Fixed &min(Fixed &a, Fixed &b);
 		static Fixed &max(Fixed &a, Fixed &b);
 		static const Fixed &min(const Fixed &a, const Fixed &b);
@@ -60,12 +59,10 @@ class Fixed
 		/*	INCREMENT OPERATORS	*/
 		Fixed	&operator++(void);
 		Fixed	operator++(const int);
-
-
+		Fixed	&operator--(void);
+		Fixed	operator--(int);
 };
 
 std::ostream&	operator<<(std::ostream &o, Fixed const &fixed);
-
-
 
 #endif
