@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:44:47 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/12/03 23:22:40 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:43:07 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Fixed
 
 		Fixed& operator=(Fixed const &fixed);
 		
-		/* COMPARAISON OPERATOR */
+		/* COMPARAISON OPERATORS */
 		bool	operator>(Fixed const &compared) const;
 		bool	operator<(Fixed const &compared) const;
 		bool	operator>=(Fixed const &compared) const;
@@ -51,11 +51,15 @@ class Fixed
 		bool	operator==(Fixed const &compared) const;
 		bool	operator!=(Fixed const &compared) const;
 
-		/*	ARYMETHIC OPERATOR	*/
+		/*	ARYMETHIC OPERATORS	*/
 		Fixed	operator+(Fixed const &add) const;
 		Fixed	operator-(Fixed const &add) const;
 		Fixed	operator*(Fixed const &add) const;
 		Fixed	operator/(Fixed const &add) const;
+
+		/*	INCREMENT OPERATORS	*/
+		Fixed	&operator++(void);
+		Fixed	operator++(const int);
 
 
 };

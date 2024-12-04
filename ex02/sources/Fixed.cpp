@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:49:47 by jgasparo          #+#    #+#             */
-/*   Updated: 2024/12/03 23:21:43 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:44:54 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,4 +155,37 @@ Fixed	Fixed::operator*(Fixed const &add) const
 Fixed	Fixed::operator/(Fixed const &add) const
 {
 	return (Fixed(this->toFloat() / add.toFloat()));
+}
+
+
+/*	Increment operators	*/
+
+/*	Pre increment	*/
+Fixed	&Fixed::operator++(void)
+{
+	this->_fixedPoint++;
+	return *this;
+}
+
+/*	Post increment	*/
+Fixed	Fixed::operator++(const int)
+{
+	Fixed	temp = *this;
+	++*this;
+	return temp;
+}
+
+/*	Pre increment	*/
+Fixed	&Fixed::operator--(void)
+{
+	this->_fixedPoint--;
+	return *this;
+}
+
+/*	Post increment	*/
+Fixed	Fixed::operator--(const int)
+{
+	Fixed	temp = *this;
+	--*this;
+	return temp;
 }
